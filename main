@@ -1,0 +1,29 @@
+*
+ * Created: 1/13/2020 11:54:07 AM
+ * Author : Pitt Student
+ */ 
+
+#include <avr/io.h>
+
+
+int main(void)
+{
+  DDRD = 0xE0;
+  PORTD = 0b11111111;
+  
+  while (1)
+  {
+	  if (PIND & 0b0001000)
+	  { PORTD = PORTD & 0b10111111; }
+	  else
+	  { PORTD = PORTD | 0b01000000; }
+		  
+		  
+		 if (PIND & 0b0010000) 
+		{ PORTD = PORTD & 0b01111111; }
+		  
+		  else
+		  {PORTD = PORTD | 0b10000000; }
+  }
+}
+
